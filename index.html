@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="./starwars_fonts.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>It's a Trap (Game)</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+    #score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 50px;
+  font-family: 'StarJHol', Arial, sans-serif;
+  color: #00bfff;
+  text-shadow:
+  0 0 5px #00bfff,
+  0 0 10px #00bfff,
+  0 0 20px #00bfff,
+  0 0 40px #00aacc;
+  animation: flicker 1.5s infinite;
+  z-index: 10;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.9; }
+  46% { opacity: 0.5; }
+  47% { opacity: 1; }
+  90% { opacity: 0.95; }
+}
+
+  </style>
+</head>
+<video id="trapVideo" width="0" height="0" preload="auto">
+  <source src="./assets/clips.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<body>
+  <div id="score">Score: 0</div>
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Load scripts in the correct order -->
+  <script src="./startscreen.js"></script>
+  <script src="./endscreen.js"></script>
+  <script src="./game.js"></script>
+<button id="skipButton" style="display: none; position: fixed; top: 10px; right: 10px; z-index: 999;">Skip to End</button>
+</body>
+</html>
